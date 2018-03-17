@@ -1,6 +1,6 @@
 # RKurs
 
-Kursbegleitende Übungsaufgaben für den PhD-Workshop _R Statistics and Tidy Data_.
+Kursbegleitende Übungsaufgaben für den PhD-Workshop [R Statistics and Tidy Data](http://elearning.uke.uni-hamburg.de/m/course/view.php?id=308).
 
 ## Installation
 
@@ -18,3 +18,5 @@ Um eine Übungsaufgabe auszuführen, einfach die Funktion `Hausaufgabe()` mit de
 ```r
 Hausaufgabe(1)
 ```
+
+Das Paket wird mit jeder Kurssitzung erweitert, d.h. die Übungsaufgaben werden sukzessive hinzugefügt.
