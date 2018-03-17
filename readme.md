@@ -11,11 +11,14 @@ library(devtools)
 devtools::install_github("strengejacke/RKurs")
 ```
 
+Danach ist das Paket installiert.
+
 ## Aufgaben starten
 
-Um eine Übungsaufgabe auszuführen, einfach die Funktion `Hausaufgabe()` mit der Aufgabennummer aufrufen:
+Um eine Übungsaufgabe auszuführen, einfach das Paket _RKurs_ laden die Funktion `Hausaufgabe()` mit der Aufgabennummer aufrufen:
 
 ```r
+library(RKurs)
 Hausaufgabe(1)
 ```
 
