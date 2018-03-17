@@ -1,0 +1,231 @@
+---
+title: "Übungsaufgaben #01"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE, exercise.timelimit=1000000}
+library(learnr)
+```
+
+# Kursbegleitende Übungsaufgaben
+
+Im folgenden gibt es einige Übungsaufgaben und Fragen zu den Inhalten des R-Kurses. Die Aufgaben sind kursbegleitend und werden regelmäßig aktualisiert.
+
+Bei den Aufgaben müsst ihr einen entsprechenden R-Code in das dazugehörige Textfeld eingeben. Mit Klick auf die Schaltfläche **Run Code** könnt ihr den Code ausführen und das Ergebnis ansehen. Falls ihr nicht weiter wisst oder unsicher seid, könnt ihr über die Schaltfläche **Hints** Tipps anzeigen lassen. Bei einigen Übungen kann man sich mehrere Tipps anzeigen lassen, indem man im Tipp-Fenster auf **Next Hint** klickt.
+
+Die Lösungen kommen am Ende der Aufgaben.
+
+## Variablen
+
+### Aufgabe 1: Erstelle drei Variablen mit Merkmalen von Kursteilnehmern
+
+Im R-Kurs sitzen Martin (35 Jahre), Valerie (23 Jahre), Michael (30 Jahre) und Franziska (27 Jahre). Erstelle drei Variablen, die die Merkmale Alter, Geschlecht und Name der Kursteilnehmer speichern.
+
+Wenn du auf **Run Code** klickst, kann es sein, dass keine Ausgabe kommt, weil bisher nur die Variablen definiert, aber nicht angezeigt wurden - das kommt in der nächsten Aufgabe.
+
+```{r exercise1, exercise=TRUE, exercise.eval=FALSE}
+# Die Namen der Variablen sollten kurz, aber aussagekräftig sein
+```
+
+```{r exercise1-hint-1}
+# Die Namen der Variablen sollten kurz, aber aussagekräftig sein,
+# z.B. alter, geschlecht und name
+```
+
+```{r exercise1-hint-2}
+# Objekt-Zuweisung erfolgt mit dem '<-' Operator
+alter <-
+geschlecht <-
+name <-
+```
+
+```{r exercise1-hint-3}
+# mehrere Werte werden mit der 'c()' Funktion verknüpft. Jeder Wert innerhalb 
+# der Klammer muss mit Komma getrennt werden.
+c(1, 3, 5)
+c("a", "b", "c")
+```
+
+### Aufgabe 2: Zeige den Inhalt der drei Variablen an
+
+```{r exercise2, exercise=TRUE, exercise.eval=FALSE}
+# Die Lösung der vorigen Frage hier bitte reinkopieren,
+# damit die Variablen erstellt! werden
+```
+
+### Frage:
+
+```{r ques1, echo=FALSE}
+question("Wie wird eine kategoriale (diskrete) Variable in R erstellt?",
+  answer("x <- c(1, 2, 3)"),
+  answer("x <- c(\"a\", \"b\", \"c\")"),
+  answer("x <- factor(\"a\", \"b\", \"c\")"),
+  answer("x <- factor(c(\"a\", \"b\", \"c\"))", correct = TRUE)
+)
+```
+
+## Datensätze
+
+### Frage:
+
+Du hast folgenden Datensatz:
+
+```{r echo=TRUE, eval=TRUE}
+daten <- data.frame(
+  geschlecht = factor(c("w","m", "w", "w")),
+  alter = c(31, 35, 27, 28)
+)
+
+daten
+```
+
+```{r ques2, echo=FALSE}
+question("Wie greift man in dem Datensatz 'daten' auf die Variable 'alter'? (Bitte alle korrekten Antworten ankreuzen)",
+  answer("daten$alter", correct = TRUE),
+  answer("daten[alter]"),
+  answer("daten[[\"alter\"]]", correct = TRUE),
+  answer("daten[\"alter\"]"),
+  answer("daten[2, ]"),
+  answer("daten[, 2]", correct = TRUE)
+)
+```
+
+### Aufgabe 3: Erstelle einen Datensatz mit den Variablen "Alter" und "Geschlecht"
+
+In dieser Aufgabe sind zwei Variablen, `alter` und `geschlecht`, vorgegeben. Erstelle daraus einen Datensatz mit der `data.frame()` Funktion und speichere ihn in einem Objekt `dat`.
+
+```{r exercise3, exercise=TRUE, exercise.eval=FALSE}
+# Variablen
+geschlecht <- factor (c("w","m", "w", "w", "m", "m", "m", "m", "w","m", "m", "w", "w", "w", "w"))
+alter <- c(31, 35, 27, 28, 22, 32, 50, 37, 31, 33, 42, 25, 29, 36, 31)
+```
+
+```{r exercise3-hint-1}
+# Objekt-Zuweisung erfolgt mit dem '<-' Operator
+dat <-
+```
+
+```{r exercise3-hint-2}
+# Die 'data.frame()' Funktion gibt einen Datensatz zurück, den wir in 'dat' speichern wollen.
+dat <- data.frame(...)
+```
+
+### Aufgabe 4: Finde das Alter der weiblichen Personen im Datensatz heraus
+
+Zeige den Datensatz mit _allen Variablen_ an, aber nur die Werte der weiblichen Personen.
+
+```{r exercise4, exercise=TRUE, exercise.eval=FALSE}
+dat
+```
+
+```{r exercise4-hint-1}
+# Zum Anzeigen bestimmter Fälle brauchen wir die Zeilen dieser Fälle
+```
+
+```{r exercise4-hint-2}
+# Der Zugriff auf Fälle und Variablen erfolgt über die Klammern [ und ]
+```
+
+```{r exercise4-hint-3}
+# Um die Fälle zu definieren, müssen die Zeilennummern als erstes Argument
+# innhalb der eckigen Klammern erfolgen
+dat[4, ]
+```
+
+```{r exercise4-hint-4}
+# Mehrere Fälle (Zeilen) werden mit dem 'c()' Befehl angegeben
+dat[c(4, 6, 8), ]
+```
+
+### Aufgabe 5: Finde das Alter der weiblichen Personen im Datensatz heraus
+
+Zeige aus dem Datensatz _nur die Variable alter_ an, und zwar nur die Werte der weiblichen Personen.
+
+```{r exercise5, exercise=TRUE, exercise.eval=FALSE}
+dat
+```
+
+## Sternchen-Aufgaben
+
+### Aufgabe 6: Berechne das Durchschnittsalter der Kursteilnehmerinnen
+
+```{r exercise6, exercise=TRUE, exercise.eval=FALSE}
+# Variablen
+geschlecht <- factor (c("w","m", "w", "w", "m", "m", "m", "m", "w","m", "m", "w", "w", "w", "w"))
+alter <- c(31, 35, 27, 28, 22, 32, 50, 37, 31, 33, 42, 25, 29, 36, 31)
+
+mwdat <- data.frame(geschlecht, alter)
+```
+
+```{r exercise6-hint-1}
+# Die Funktion 'mean()' berechnet den Mittelwert einer Variablen
+mean(...)
+```
+
+```{r exercise6-hint-2}
+# Aus dem Datensatz muss die Variable "alter" nur für die
+# weiblichen Personen herausgefiltert werden
+mean(mwdat[?, ?])
+```
+
+## Lösungen
+
+### Aufgabe 1: Erstelle drei Variablen mit Merkmalen von Kursteilnehmern
+
+```{r solution1, exercise=FALSE, exercise.eval=TRUE}
+alter <- c(35, 23, 30, 27)
+geschlecht <- c("m", "w", "m", "s")
+name <- c("Martin", "Valerie", "Michael", "Franziska")
+```
+
+### Aufgabe 2: Zeige den Inhalt der drei Variablen an
+
+```{r solution2, exercise=FALSE, exercise.eval=TRUE}
+alter <- c(35, 23, 30, 27)
+geschlecht <- c("m", "w", "m", "s")
+name <- c("Martin", "Valerie", "Michael", "Franziska")
+
+alter
+geschlecht
+name
+```
+
+### Aufgabe 3: Erstelle einen Datensatz mit den Variablen "Alter" und "Geschlecht"
+
+```{r solution3, exercise=FALSE, exercise.eval=TRUE}
+# Variablen
+geschlecht <- factor(c("w","m", "w", "w", "m", "m", "m", "m", "w","m", "m", "w", "w", "w", "w"))
+alter <- c(31, 35, 27, 28, 22, 32, 50, 37, 31, 33, 42, 25, 29, 36, 31)
+
+dat <- data.frame(alter, geschlecht)
+dat
+
+```
+
+### Aufgabe 4: Finde das Alter der weiblichen Personen im Datensatz heraus
+
+```{r solution4, exercise=FALSE, exercise.eval=TRUE}
+dat[c(1, 3, 4, 9, 12, 13, 14, 15), ]
+```
+
+### Aufgabe 5: Finde das Alter der weiblichen Personen im Datensatz heraus
+
+```{r solution5, exercise=FALSE, exercise.eval=TRUE}
+dat[c(1, 3, 4, 9, 12, 13, 14, 15), "alter"]
+
+# oder
+dat[c(1, 3, 4, 9, 12, 13, 14, 15), 1]
+```
+
+### Aufgabe 6: Berechne das Durchschnittsalter der Kursteilnehmerinnen
+
+```{r solution6, exercise=FALSE, exercise.eval=TRUE}
+# Variablen
+geschlecht <- factor(c("w","m", "w", "w", "m", "m", "m", "m", "w","m", "m", "w", "w", "w", "w"))
+alter <- c(31, 35, 27, 28, 22, 32, 50, 37, 31, 33, 42, 25, 29, 36, 31)
+
+mwdat <- data.frame(geschlecht, alter)
+
+mean(mwdat[c(1, 3, 4, 9, 12, 13, 14, 15), "alter"])
+```
