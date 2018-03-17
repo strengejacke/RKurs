@@ -28,4 +28,4 @@ Das Paket wird mit jeder Kurssitzung erweitert, d.h. die Übungsaufgaben werden 
 
 Die Übungsaufgaben rufen einen Webbrowser auf, in dem die Aufgaben durchgeführt werden können. Wenn man die Aufgaben beendet (in dem man den Browser schließt), ist der Prozess in R noch aktiv (siehe rotes Stop-Schild in RStudio). Zum Beenden dann einfach auf das rote Symbol klicken.
 
-!(R-Hausaufgabe-beenden.png)
+![R Prozess beenden](R-Hausaufgabe-beenden.png)
