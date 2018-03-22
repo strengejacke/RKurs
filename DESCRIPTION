@@ -1,8 +1,8 @@
 Package: RKurs
 Type: Package
 Title: Hausaufgaben zum PhD-Kurs 'R Statistics and Tidy Data'
-Version: 0.1.0
-Date: 2018-03-13
+Version: 0.2.0
+Date: 2018-03-20
 Author: Daniel Lüdecke
 Maintainer: Daniel Lüdecke <d.luedecke@uke.de>
 Description: Dieses Paket enthält die kursbegleitenden Hausaufgaben zum

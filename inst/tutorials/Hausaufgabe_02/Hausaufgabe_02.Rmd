@@ -1,0 +1,216 @@
+---
+title: "Übungsaufgaben #02"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE, exercise.timelimit=1000000}
+library(learnr)
+library(dplyr)
+```
+
+# Kursbegleitende Übungsaufgaben
+
+Im folgenden gibt es einige Übungsaufgaben und Fragen zu den Inhalten des R-Kurses. Die Aufgaben sind kursbegleitend und werden regelmäßig aktualisiert.
+
+Bei den Aufgaben müsst ihr einen entsprechenden R-Code in das dazugehörige Textfeld eingeben. Mit Klick auf die Schaltfläche **Run Code** könnt ihr den Code ausführen und das Ergebnis ansehen. Falls ihr nicht weiter wisst oder unsicher seid, könnt ihr über die Schaltfläche **Hints** Tipps anzeigen lassen. Bei einigen Übungen kann man sich mehrere Tipps anzeigen lassen, indem man im Tipp-Fenster auf **Next Hint** klickt.
+
+Die Lösungen werden in einer der nächsten Kurssitzungen besprochen. Die folgenden Befehle beziehen sich alle auf das *dplyr*-Paket. Innerhalb dieser Aufgabe ist es bereits geladen. Wenn ihr die Übungen in R durchführen wollt, müsst ihr das Paket zuerst laden (`library(dplyr)`).
+
+Bei den Aufgaben ist es erforderlich, den Datensatz zu sehen. Mit den Pfeilen neben den Variablennamen (erste Zeile) "blättert" man weiter zu den nächsten Variablen. Unter den angezeigten Zeilen kann man sich die nächsten, noch nicht sichtbaren Zeilen, anzeigen lassen.
+
+## Fälle auswählen
+
+### Aufgabe 1
+
+Mit dem `select()`-Befehl werden Fälle aus Datensätzen ausgewählt. Die folgenden Übrungen beziehen sich auf den `starwars`-Datensatz aus dem Paket.
+
+```{r exercise1, exercise=TRUE, exercise.eval=TRUE}
+data(starwars)
+starwars
+```
+
+```{r ques1, echo=FALSE}
+question("Wie wählt man nur die Variable 'homeworld' aus dem Datensatz 'starwars' aus? Bitte *alle* korrekten Antworten angeben.",
+  answer("select(homeworld)"),
+  answer("select(starwars, \"homeworld\")", correct = TRUE),
+  answer("select(starwars, homeworld)", correct = TRUE),
+  answer("select(starwars, contains(\"ho\"))", correct = TRUE),
+  answer("select(starwars, contains(\"me\"))"),
+  answer("select(starwars, 9)", correct = TRUE),
+  answer("select(starwars, 10)"),
+  answer("select(starwars, contains(\"home\"))", correct = TRUE)
+)
+```
+
+### Aufgabe 2
+
+Wähle alle Variablen aus, die mit "s" anfangen.
+
+```{r exercise2, exercise=TRUE, exercise.eval=FALSE}
+data(starwars)
+
+```
+
+```{r ques2, echo=FALSE}
+question("Welche Variablen erscheinen nach Durchführung des obigen Befehls?",
+  answer("skin_color"),
+  answer("starships"),
+  answer("starships, species"),
+  answer("mass, skin_color, species films, vehicles, starships"),
+  answer("skin_color, species, starships", correct = TRUE),
+  answer("skin_color, species, starships, system")
+)
+```
+
+### Aufgabe 3
+
+Wähle alle Variablen von Haar- bis Augenfarbe aus.
+
+```{r exercise3, exercise=TRUE, exercise.eval=FALSE}
+data(starwars)
+
+```
+
+```{r ques3, echo=FALSE}
+question("Wie viele Variablen erhält der neue Datensatz?",
+  answer("1"),
+  answer("2"),
+  answer("3", correct = TRUE),
+  answer("4"),
+  answer("5")
+)
+```
+
+## Fälle filtern
+
+Das Auswählen von Fällen anhand logischer Kriterien (filtern) geht mit dem Befehl  `filter()`.
+
+### Aufgabe 4
+
+Wie viele Personen kommen ursprünglich vom Planeten Tatooine?
+
+```{r exercise4, exercise=TRUE, exercise.eval=FALSE}
+data(starwars)
+
+```
+
+```{r ques4, echo=FALSE}
+question("Wie viele Personen kommen ursprünglich vom Planeten Tatooine?",
+  answer("1"),
+  answer("3"),
+  answer("6"),
+  answer("10", correct = TRUE),
+  answer("12"),
+  answer("15")
+)
+```
+
+### Aufgabe 5
+
+Wie heißt die erste Person im Datensatz, die größer als 2,22m ist?
+
+```{r exercise5, exercise=TRUE, exercise.eval=FALSE}
+data(starwars)
+
+```
+
+```{r ques5, echo=FALSE}
+question("Wie heißt die erste Person im Datensatz, die größer als 2,22m ist?",
+  answer("Darth Maul"),
+  answer("Ben Quadinaros"),
+  answer("Palpatine"),
+  answer("Darth Vader"),
+  answer("Qui-Gon Jinn"),
+  answer("Tarfful"),
+  answer("Chewbacca", correct = TRUE),
+  answer("Ackbar"),
+  answer("Boba Fett")
+)
+```
+
+### Aufgabe 6
+
+Wie viele Fälle erhalte ich, wenn ich nach folgenden Kriterien filtere: kleiner als 1,20m oder Spezies "Droide"?
+
+```{r exercise6, exercise=TRUE, exercise.eval=FALSE}
+data(starwars)
+
+```
+
+```{r ques6, echo=FALSE}
+question("Wie viele Fälle erhalte ich?",
+  answer("keinen"),
+  answer("1"),
+  answer("3"),
+  answer("7"),
+  answer("11", correct = TRUE),
+  answer("15"),
+  answer("23")
+)
+```
+
+## Fälle auswählen
+
+Fälle auswählen geht mit `slice()`.
+
+### Aufgabe 7
+
+Wähle den 82. Fall aus. Wie heißt die Person?
+
+```{r exercise7, exercise=TRUE, exercise.eval=FALSE}
+data(starwars)
+
+```
+
+```{r ques7, echo=FALSE}
+question("Wie heißt die Person?",
+  answer("Darth Vader"),
+  answer("Poe Dameran"),
+  answer("Jabba the Hut"),
+  answer("Luke Skywalker"),
+  answer("Finn", correct = TRUE),
+  answer("R2-D2")
+)
+```
+
+### Aufgabe 8
+
+Wähle die Fälle 83 und 85 aus. Wie heißen die Personen?
+
+```{r exercise8, exercise=TRUE, exercise.eval=FALSE}
+data(starwars)
+
+```
+
+```{r ques8, echo=FALSE}
+question("Wie heißen die Personen?",
+  answer("Finn und Rey"),
+  answer("Rey und BB8", correct = TRUE),
+  answer("BB8 und R2-D2"),
+  answer("R2-D2 und C-3PO"),
+  answer("C-3PO und Ben Kenobi")
+)
+```
+
+### Aufgabe 9
+
+Wähle alle Fälle außer die ersten 20 aus. In der Anzeige, welcher Name steht in der 5 Zeile?
+
+```{r exercise9, exercise=TRUE, exercise.eval=FALSE}
+data(starwars)
+
+```
+
+```{r ques9, echo=FALSE}
+question("Wie heißt die Person?",
+  answer("BB8"),
+  answer("Rey"),
+  answer("Finn"),
+  answer("Luke Skywalker"),
+  answer("Lobot", correct = TRUE),
+  answer("Ackbar"),
+  answer("Chewbacca"),
+  answer("Mon Motma")
+)
+```
