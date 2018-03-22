@@ -131,7 +131,7 @@ question("Wie heißt die erste Person im Datensatz, die größer als 2,22m ist?"
 
 ### Aufgabe 6
 
-Wie viele Fälle erhalte ich, wenn ich nach folgenden Kriterien filtere: kleiner als 1,20m oder Spezies "Droide"?
+Wie viele Fälle erhalte ich, wenn ich nach folgenden Kriterien filtere: kleiner als 1,20m oder von der Spezies Droide (bitte auf englische Schreibweise der Variablen-Werte achten!)?
 
 ```{r exercise6, exercise=TRUE, exercise.eval=FALSE}
 data(starwars)
