@@ -1,0 +1,190 @@
+---
+title: "Übungsaufgaben #03"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE, exercise.timelimit=1000000}
+library(learnr)
+library(dplyr)
+```
+
+# Kursbegleitende Übungsaufgaben
+
+Im folgenden gibt es einige Übungsaufgaben und Fragen zu den Inhalten des R-Kurses. Die Aufgaben sind kursbegleitend und werden regelmäßig aktualisiert.
+
+Bei den Aufgaben müsst ihr einen entsprechenden R-Code in das dazugehörige Textfeld eingeben. Mit Klick auf die Schaltfläche **Run Code** könnt ihr den Code ausführen und das Ergebnis ansehen. Falls ihr nicht weiter wisst oder unsicher seid, könnt ihr über die Schaltfläche **Hints** Tipps anzeigen lassen. Bei einigen Übungen kann man sich mehrere Tipps anzeigen lassen, indem man im Tipp-Fenster auf **Next Hint** klickt.
+
+Die Lösungen werden in einer der nächsten Kurssitzungen besprochen. Die folgenden Befehle beziehen sich alle auf das *dplyr*-Paket. Innerhalb dieser Aufgabe ist es bereits geladen. Wenn ihr die Übungen in R durchführen wollt, müsst ihr das Paket zuerst laden (`library(dplyr)`).
+
+Bei den Aufgaben ist es erforderlich, den Datensatz zu sehen. Mit den Pfeilen neben den Variablennamen (erste Zeile) "blättert" man weiter zu den nächsten Variablen. Unter den angezeigten Zeilen kann man sich die nächsten, noch nicht sichtbaren Zeilen, anzeigen lassen.
+
+## Fälle sortieren
+
+Die folgenden Übrungen beziehen sich auf den `starwars`-Datensatz aus dem Paket.
+
+### Aufgabe 1
+
+Wähle die Fälle 20 bis 30 aus und sortiere sie aufsteigen nach Größe.
+
+```{r exercise1, exercise=TRUE, exercise.eval=FALSE}
+data(starwars)
+
+```
+
+```{r ques1, echo=FALSE}
+question("Wie groß ist die 10. Person?",
+  answer("170"),
+  answer("180"),
+  answer("190"),
+  answer("200", correct = TRUE),
+  answer("210")
+)
+```
+
+### Aufgabe 2
+
+Wähle alle Fälle aus, deren Gewicht (`mass`) größer als 90 ist und sortiere sie absteigend nach Hautfarbe.
+
+```{r exercise2, exercise=TRUE, exercise.eval=FALSE}
+data(starwars)
+
+```
+
+```{r ques2, echo=FALSE}
+question("Wie oft steht die Hautfarbe 'brown' untereinander",
+  answer("1x"),
+  answer("2x"),
+  answer("3x", correct = TRUE),
+  answer("4x"),
+  answer("5x")
+)
+```
+
+## Variablen erstellen
+
+### Aufgabe 3
+
+Erstelle eine neue Variable mit `mutate()`, die die Größe in Zoll angibt und speichere den neuen Datensatz wieder in `starwars`.
+
+```{r exercise3, exercise=TRUE, exercise.eval=FALSE}
+data(starwars)
+
+```
+
+```{r ques3, echo=FALSE}
+question("Wie lautet der Befehl? Bitte nur die 'idealste' (kürzeste) Möglichkeit ankreuzen.",
+  answer("starwars <- mutate(starwars, height = height / 2,54)"),
+  answer("starwars <- mutate(starwars, height_zoll = height / 2,54)"),
+  answer("starwars <- mutate(starwars, height = height / 2.54)"),
+  answer("starwars <- mutate(starwars, height_zoll = height / 2.54)", correct = TRUE),
+  answer("starwars <- mutate(starwars, height = starwars$height / 2,54)"),
+  answer("starwars <- mutate(starwars, height_zoll = starwars$height / 2,54)"),
+  answer("starwars <- mutate(starwars, height = starwars$height / 2.54)"),
+  answer("starwars <- mutate(starwars, height_zoll = starwars$height / 2.54)")
+)
+```
+
+### Aufgabe 4
+
+Wie groß ist die 44. Person in Zoll?
+
+```{r exercise4, exercise=TRUE, exercise.eval=FALSE}
+data(starwars)
+
+```
+
+```{r ques4, echo=FALSE}
+question("Wie groß ist die 44. Person in Zoll (ohne Nachkomnastellen)?",
+  answer("64"),
+  answer("66"),
+  answer("68"),
+  answer("70", correct = TRUE),
+  answer("72"),
+  answer("74")
+)
+```
+
+## Fälle zusammenfassen
+
+### Aufgabe 5
+
+Wie groß ist der Anteil an Frauen im Datensatz? Hierzu werden die Befehle `summarise` und `mean` benötigt.
+
+```{r exercise5, exercise=TRUE, exercise.eval=FALSE}
+data(starwars)
+
+```
+
+```{r ques5, echo=FALSE}
+question("Wie groß ist der Anteil an Frauen (in Prozent) im Datensatz?",
+  answer("19,7"),
+  answer("20,5"),
+  answer("21,3"),
+  answer("22,6", correct = TRUE),
+  answer("23,8"),
+  answer("24,2"),
+  answer("25,0")
+)
+```
+
+### Aufgabe 6
+
+Wie viele unterschiedliche Heimatplaneten gibt es?
+
+```{r exercise6, exercise=TRUE, exercise.eval=FALSE}
+data(starwars)
+
+```
+
+```{r ques6, echo=FALSE}
+question("Wie viele unterschiedliche Heimatplaneten gibt es?",
+  answer("53"),
+  answer("49", correct = TRUE),
+  answer("43"),
+  answer("39"),
+  answer("35")
+)
+```
+
+### Aufgabe 7
+
+Wie ist die Durchschnittsgröße von Männern und Frauen im Datensatz, in Zoll? Für die zusammenfassende Statistik sollte der Datensatz nach Geschlecht gruppiert werden.
+
+
+```{r exercise7, exercise=TRUE, exercise.eval=FALSE}
+data(starwars)
+
+```
+
+```{r ques7, echo=FALSE}
+question("Wie groß sind Frauen und Männer durchschnittlich (Maßeinheit Zoll, gerundet)?",
+  answer("Männer: 69,5 - Frauen: 64,7"),
+  answer("Männer: 71,3 - Frauen: 62,9"),
+  answer("Männer: 68,5 - Frauen: 65,1"),
+  answer("Männer: 70,3 - Frauen: 63,3"),
+  answer("Männer: 70,6 - Frauen: 65,1", correct = TRUE),
+  answer("Männer: 70,6 - Frauen: 64,7"),
+  answer("Männer: 69,8 - Frauen: 64,8")
+)
+```
+
+### Aufgabe 8
+
+Gruppiere den Datensatz nach Spezies und Geschlecht und berechne das durchschnittliche Gewicht für die jeweilige Gruppe.
+
+```{r exercise8, exercise=TRUE, exercise.eval=FALSE}
+data(starwars)
+
+```
+
+```{r ques8, echo=FALSE}
+question("Wie schwer sind männliche Humanoide durchschnittlich (aufgerundet)?",
+  answer("80kg"),
+  answer("82kg"),
+  answer("85kg"),
+  answer("87kg", correct = TRUE),
+  answer("90kg"),
+  answer("82kg")
+)
+```
