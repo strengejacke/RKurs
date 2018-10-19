@@ -23,7 +23,7 @@ Bei den Aufgaben ist es erforderlich, den Datensatz zu sehen. Mit den Pfeilen ne
 
 ### Aufgabe 1
 
-Mit dem `select()`-Befehl werden Fälle aus Datensätzen ausgewählt. Die folgenden Übrungen beziehen sich auf den `starwars`-Datensatz aus dem Paket.
+Mit dem `select()`-Befehl werden Fälle aus Datensätzen ausgewählt. Die folgenden Übungen beziehen sich auf den `starwars`-Datensatz aus dem Paket.
 
 ```{r exercise1, exercise=TRUE, exercise.eval=TRUE}
 data(starwars)

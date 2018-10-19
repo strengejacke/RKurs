@@ -1,5 +1,5 @@
 ---
-title: "Übungsaufgaben #03"
+title: "Übungsaufgaben #04"
 output: learnr::tutorial
 runtime: shiny_prerendered
 ---
@@ -7,17 +7,14 @@ runtime: shiny_prerendered
 ```{r setup, include=FALSE, exercise.timelimit=1000000}
 library(learnr)
 library(dplyr)
+library(tidyr)
+library(tibble)
+library(lme4)
 ```
 
 # Kursbegleitende Übungsaufgaben
 
-Im folgenden gibt es einige Übungsaufgaben und Fragen zu den Inhalten des R-Kurses. Die Aufgaben sind kursbegleitend und werden regelmäßig aktualisiert.
-
-Bei den Aufgaben müsst ihr einen entsprechenden R-Code in das dazugehörige Textfeld eingeben. Mit Klick auf die Schaltfläche **Run Code** könnt ihr den Code ausführen und das Ergebnis ansehen. Falls ihr nicht weiter wisst oder unsicher seid, könnt ihr über die Schaltfläche **Hints** Tipps anzeigen lassen. Bei einigen Übungen kann man sich mehrere Tipps anzeigen lassen, indem man im Tipp-Fenster auf **Next Hint** klickt.
-
-Die Lösungen werden in einer der nächsten Kurssitzungen besprochen. Die folgenden Befehle beziehen sich alle auf das *dplyr*-Paket. Innerhalb dieser Aufgabe ist es bereits geladen. Wenn ihr die Übungen in R durchführen wollt, müsst ihr das Paket zuerst laden (`library(dplyr)`).
-
-Bei den Aufgaben ist es erforderlich, den Datensatz zu sehen. Mit den Pfeilen neben den Variablennamen (erste Zeile) "blättert" man weiter zu den nächsten Variablen. Unter den angezeigten Zeilen kann man sich die nächsten, noch nicht sichtbaren Zeilen, anzeigen lassen.
+Um die folgenden Aufgaben in R durchzuführen, müssen die Pakete _dplyr_, _tidyr_, _tibble_ und _lme4_ geladen werden. Wenn die Aufgaben über das _RKurs_ Paket im Browser bearbeitet werden, sind diese Pakete bereits geladen.
 
 ## Fälle sortieren
 
@@ -28,7 +25,15 @@ Die folgenden Übungen beziehen sich auf den `starwars`-Datensatz aus dem Paket.
 Wähle die Fälle 20 bis 30 aus und sortiere sie aufsteigen nach Größe.
 
 ```{r exercise1, exercise=TRUE, exercise.eval=FALSE}
-data(starwars)
+
+
+data_wide <- tribble(
+ ~subject, ~sex, ~control, ~cond1, ~cond2,
+        1,  "M",      7.9,   12.3,   10.7,
+        2,  "F",      6.3,   10.6,   11.1,
+        3,  "F",      9.5,   13.1,   13.8,
+        4,  "M",     11.5,   13.4,   12.9
+)
 
 ```
 
